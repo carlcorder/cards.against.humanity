@@ -7,3 +7,7 @@ achieve a winner.
 
 ### Running
 * Run the main class in your favorite IDE
+
+
+#### Todo
+* Package as jar and run with command line parameters
