@@ -13,4 +13,5 @@ to win.
 ### Running
 * Run the main class in your favorite IDE
 
+#### TODO
 - [] Package as jar and allow user run with command line parameters
