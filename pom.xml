@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-
         <dependency>
             <groupId>org.jfree</groupId>
             <artifactId>jfreechart</artifactId>
@@ -21,11 +20,6 @@
             <artifactId>guava</artifactId>
             <version>19.0</version>
         </dependency>
-
-
     </dependencies>
-
-
-
 
 </project>
