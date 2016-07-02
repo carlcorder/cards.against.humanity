@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class GameUtils {
 
-    public static int getRandomPlayerId(List<Player> players) {
+    public static int selectRandomPlayer(List<Player> players) {
         Random random = new Random();
 
         List<Integer> serfIds = players

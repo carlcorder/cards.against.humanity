@@ -1,31 +1,36 @@
 package domain;
 
-
+import com.google.common.collect.Lists;
+import param.Parameters;
 import util.GameUtils;
 
 import java.util.List;
 
 public class Game {
 
-    public List<Player> players;
-    Player cardCzar;
+    private List<Player> players;
+    private Player cardCzar;
+    private int currentRound;
+    private int roundsPlayed;
 
-    int currentRound;
-    int roundsPlayed;
-
-    public static final int POINTS_TO_WIN = 5;
-
-    public Game(List<Player> players) {
-        this.players = players;
+    public Game(int n) {
+        // initialize the players
+        initializePlayers(n);
 
         // initialize the game with a random card czar
-        cardCzar = players.get(GameUtils.getRandomPlayerId(players));
+        cardCzar = players.get(GameUtils.selectRandomPlayer(players));
         cardCzar.setCardCzar(true);
     }
 
-    public int getRoundsPlayed() { return roundsPlayed; }
+    private void initializePlayers(int n) {
+        players = Lists.newArrayList();
+        // set player ids
+        for(int i = 0; i < n; i++) {
+            players.add(new Player(i));
+        }
+    }
 
-    public void playRound() {
+    private void playRound() {
         // elect a new czar and reward one point
         Player newCzar = selectRoundWinner(this.players);
         // demote the current czar
@@ -34,23 +39,32 @@ public class Game {
         cardCzar = newCzar; currentRound++;
     }
 
-    public Player selectRoundWinner(List<Player> players) {
+    private Player selectRoundWinner(List<Player> players) {
         // choose a random player who is not the czar
-        Player player = players.get(GameUtils.getRandomPlayerId(players));
+        Player player = players.get(GameUtils.selectRandomPlayer(players));
         player.setCardCzar(true);
         player.addPoint();
 
         return player;
     }
 
-    public Player getWinner() {
+    private Player getWinner() {
         for(Player player : players) {
-            if(player.getPoints() >= POINTS_TO_WIN) {
+            if(player.getPoints() >= Parameters.POINTS_TO_WIN) {
                 this.roundsPlayed = currentRound;
                 return player;
             }
         }
         return null;
     }
+
+    public void run() {
+        // keep playing until we have a winner
+        while(getWinner() == null) {
+            playRound();
+        }
+    }
+
+    public int getRoundsPlayed() { return roundsPlayed; }
 
 }
