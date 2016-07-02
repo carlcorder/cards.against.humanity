@@ -5,12 +5,10 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
-import param.Parameters;
 
 public class PlotUtils {
 
-
-    public static JFreeChart preparePlot(double[] data, int bins) {
+    public static JFreeChart preparePlot(double[] data) {
 
         HistogramDataset dataset = new HistogramDataset();
         dataset.setType(HistogramType.RELATIVE_FREQUENCY);
@@ -25,7 +23,4 @@ public class PlotUtils {
                 .createHistogram(title, xAxis, yAxis, dataset, orientation, false, false, false);
     }
 
-    public static int getBinSize() {
-        return (Parameters.NUMBER_OF_PLAYERS*(Parameters.POINTS_TO_WIN - 1) + 1) - Parameters.POINTS_TO_WIN;
-    }
 }

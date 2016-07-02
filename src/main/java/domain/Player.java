@@ -1,15 +1,10 @@
 package domain;
 
-
 public class Player {
 
     private int id;
-    private int points = 0;
+    private int points;
     private boolean cardCzar = false;
-
-    Player () {
-
-    }
 
     public Player(int id) {
         this.id = id;
