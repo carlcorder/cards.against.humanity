@@ -5,6 +5,9 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
+import param.Parameters;
+
+import java.text.DecimalFormat;
 
 public class PlotUtils {
 
@@ -21,6 +24,11 @@ public class PlotUtils {
 
         return ChartFactory
                 .createHistogram(title, xAxis, yAxis, dataset, orientation, false, false, false);
+    }
+
+    public static String getWindowTitle() {
+        DecimalFormat formatter = new DecimalFormat("#,###");
+        return "Simulation of " + formatter.format(Parameters.NUMBER_OF_GAMES) + " games";
     }
 
 }
