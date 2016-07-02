@@ -1,4 +1,5 @@
 import com.google.common.collect.Lists;
+import com.google.common.primitives.Doubles;
 import domain.Game;
 import org.jfree.ui.RefineryUtilities;
 import param.Parameters;
@@ -12,40 +13,34 @@ public class CardsAgainstHumanity {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
+        String windowTitle = "Simulation of " + Parameters.NUMBER_OF_GAMES + " games";
+
         ExecutorService executorService = Executors.newFixedThreadPool(Parameters.NUMBER_OF_THREADS);
         List<Future<List<Double>>> futures = Lists.newArrayList();
+        List<Double> aggregateResults = Lists.newArrayList();
 
-        long startTime = System.currentTimeMillis();
         for(int i = 0; i < Parameters.NUMBER_OF_THREADS; i++) {
             futures.add(executorService.submit(new Callable<List<Double>>() {
-
                 List<Double> rounds = Lists.newArrayList();
-
                 @Override
                 public List<Double> call() throws Exception {
                     for(int j = 0; j < Parameters.GAMES_PER_THREAD; j++) {
                         Game game = new Game(Parameters.NUMBER_OF_PLAYERS);
                         game.run();
-                        rounds.add(Double.valueOf(game.getRoundsPlayed()));
+                        rounds.add((double) game.getRoundsPlayed());
                     }
                     return rounds;
                 }
             }));
-
         }
 
-        List<Double> aggregateResults = Lists.newArrayList();
-
+        // recombine thread results
         for(int i = 0; i < Parameters.NUMBER_OF_THREADS; i++) {
-            Future<List<Double>> future = futures.get(i);
-            aggregateResults.addAll(future.get());
+            aggregateResults.addAll(futures.get(i).get());
         }
 
-        final DataPlot dataPlot = new DataPlot("Simulation of " + Parameters.NUMBER_OF_GAMES + " games",
-                PlotUtils.preparePlot(PlotUtils.convertData(aggregateResults), PlotUtils.getBinSize()));
-
-        long endTime = System.currentTimeMillis();
-        System.out.println("elapsed time : " + (endTime - startTime) + " ms");
+        final DataPlot dataPlot = new DataPlot(windowTitle,
+                PlotUtils.preparePlot(Doubles.toArray(aggregateResults)));
 
         dataPlot.pack();
         RefineryUtilities.centerFrameOnScreen(dataPlot);

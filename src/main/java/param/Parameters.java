@@ -8,7 +8,7 @@ public class Parameters {
     public static final int NUMBER_OF_GAMES = 100000;
 
     public static final int NUMBER_OF_THREADS = 10;
-    public static final int GAMES_PER_THREAD = NUMBER_OF_GAMES/NUMBER_OF_THREADS;
+    public static final int GAMES_PER_THREAD = (NUMBER_OF_GAMES/NUMBER_OF_THREADS);
 
 
 }
