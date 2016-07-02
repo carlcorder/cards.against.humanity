@@ -7,6 +7,8 @@ import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
 import param.Parameters;
 
+import java.util.List;
+
 public class PlotUtils {
 
 
@@ -27,5 +29,13 @@ public class PlotUtils {
 
     public static int getBinSize() {
         return (Parameters.NUMBER_OF_PLAYERS*(Parameters.POINTS_TO_WIN - 1) + 1) - Parameters.POINTS_TO_WIN;
+    }
+
+    public static double[] convertData(List<Double> dataSet) {
+        double[] data = new double[dataSet.size()];
+        for(int i = 0; i < dataSet.size(); i++) {
+            data[i] = dataSet.get(i);
+        }
+        return data;
     }
 }
