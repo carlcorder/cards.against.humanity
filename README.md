@@ -33,14 +33,17 @@ player is removed from the selection process.
 | 9       	| 1.00 	| 5.25 	| 10.46 	| 16.25 	| 22.44 	|
 | 10      	| 1.00 	| 5.46 	| 11.04 	| 17.31 	| 24.03 	|
 
-Let x be the number of players and y be the number of points to win. Then, using a quadratic fit to the table above yields the
+
+If we Let x be the number of players and y be the number of points to win. Then, using a quadratic fit to the table above yields the
 equation:
 
-> f(x,y) = 0.435498 - 0.234449 x - 0.0282792 x^2 + 0.154057 y + 0.469967 x y + 0.173413 y^2
+> F(x,y) = 0.435498 - 0.234449 x - 0.0282792 x^2 + 0.154057 y + 0.469967 x y + 0.173413 y^2
 
 For example, for 13 players and 5 rounds to win we have
 
-> f(13,5) = 28.26
+> F(13,5) = 28.26
+
+Which is close to the simulated value of 28.54
 
 ### Requirements
 * Java 8
