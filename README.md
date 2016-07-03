@@ -17,6 +17,23 @@ player is removed from the selection process.
 ## Example of program output
 ![alt text](https://github.com/carlcorder/cards.against.humanity/blob/master/src/img/cards-against-humanity-histogram.png)
 
+### Average number of rounds played as a function of the number of players and points needed to win
+_________________________________________________________________
+| Points  	 	1      2    	 3     	 	4     	 	5       |
+|---------	|-------|-------|-----------|-----------|-----------|
+| Players 	|      	|      	|       	|       	|       	|
+| 1       	| /    	| /    	| /     	| /     	| /     	|
+| 2       	| 1.00 	| 3.00 	| 5.00  	| 7.00  	| 9.00  	|
+| 3       	| 1.00 	| 3.50 	| 6.00  	| 8.66  	| 11.33 	|
+| 4       	| 1.00 	| 3.88 	| 6.96  	| 10.18 	| 13.48 	|
+| 5       	| 1.00 	| 4.22 	| 7.77  	| 11.54 	| 15.47 	|
+| 6       	| 1.00 	| 4.51 	| 8.51  	| 12.82 	| 17.33 	|
+| 7       	| 1.00 	| 4.77 	| 9.20  	| 14.01 	| 19.10 	|
+| 8       	| 1.00 	| 5.02 	| 9.84  	| 15.17 	| 20.80 	|
+| 9       	| 1.00 	| 5.25 	| 10.46 	| 16.25 	| 22.44 	|
+| 10      	| 1.00 	| 5.46 	| 11.04 	| 17.31 	| 24.03 	|
+-----------------------------------------------------------------
+
 ### Requirements
 * Java 8
 * Maven
