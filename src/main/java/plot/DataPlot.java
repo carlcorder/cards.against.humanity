@@ -13,4 +13,5 @@ public class DataPlot extends ApplicationFrame {
         chartPanel.setPreferredSize(new java.awt.Dimension(525,300));
         setContentPane(chartPanel);
     }
+
 }

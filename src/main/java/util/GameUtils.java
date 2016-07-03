@@ -1,5 +1,6 @@
 package util;
 
+import com.google.common.math.DoubleMath;
 import domain.Player;
 
 import java.util.List;
@@ -19,4 +20,9 @@ public class GameUtils {
 
         return serfIds.get(random.nextInt(serfIds.size()));
     }
+
+    public static double getAverageRoundsPlayed(double[] data) {
+        return DoubleMath.mean(data);
+    }
+
 }
