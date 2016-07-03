@@ -18,9 +18,9 @@ player is removed from the selection process.
 ![alt text](https://github.com/carlcorder/cards.against.humanity/blob/master/src/img/cards-against-humanity-histogram.png)
 
 ### Average number of rounds played as a function of the number of players and points needed to win
-_________________________________________________________________
-| Points  	 	1      2    	 3     	 	4     	 	5       |
-|---------	|-------|-------|-----------|-----------|-----------|
+
+| Points  	| 1    	| 2    	| 3     	| 4     	| 5     	|
+|---------	|------	|------	|-------	|-------	|-------	|
 | Players 	|      	|      	|       	|       	|       	|
 | 1       	| /    	| /    	| /     	| /     	| /     	|
 | 2       	| 1.00 	| 3.00 	| 5.00  	| 7.00  	| 9.00  	|
@@ -32,7 +32,6 @@ _________________________________________________________________
 | 8       	| 1.00 	| 5.02 	| 9.84  	| 15.17 	| 20.80 	|
 | 9       	| 1.00 	| 5.25 	| 10.46 	| 16.25 	| 22.44 	|
 | 10      	| 1.00 	| 5.46 	| 11.04 	| 17.31 	| 24.03 	|
------------------------------------------------------------------
 
 ### Requirements
 * Java 8
