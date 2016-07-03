@@ -36,6 +36,7 @@ public class GamePlayingService {
         for (int i = 0; i < Parameters.NUMBER_OF_THREADS; i++) {
             aggregateResults.addAll(threadedSimulator().get(i).get());
         }
+        executorService.shutdown();
         return Doubles.toArray(aggregateResults);
     }
 
