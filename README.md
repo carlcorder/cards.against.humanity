@@ -5,7 +5,7 @@ you call it a night?
 
 ## Enter the Cards Against Humanity Simulator
 
-This program simulates playing the game Cards Against Humanity and generates a relative frequency histogram of the number of rounds
+This program simulates playing the game [`Cards Against Humanity`](https://en.wikipedia.org/wiki/Cards_Against_Humanity) and generates a relative frequency histogram of the number of rounds
 played before a winner is declared. My underlying assumptions are that at each round a serf, a player who is not the card Czar, is
 chosen randomly from a uniform distribution and elected as the new card Czar.
 
